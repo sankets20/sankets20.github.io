@@ -5,7 +5,7 @@ body {
     padding: 0;
     line-height: 1.6;
     background-color: #f4f4f4; /* Light grey background for better readability */
-    color: #333; /* Dark grey text for better contrast */
+    color: #333333; /* Dark grey text for better contrast */
 }
 
 .container {
@@ -15,7 +15,7 @@ body {
 
 /* Header Styles */
 header {
-    background: #080808; /* Black background */
+    background: #000000; /* Black background */
     color: #fff; /* White text */
     padding: 10px 0;
 }
@@ -23,7 +23,7 @@ header {
 header h1 {
     text-align: center;
     margin: 0;
-    color: #ffffff; /* Vibrant green for the title */
+    color: #09d116; /* Vibrant green for the title */
 }
 
 header nav ul {
@@ -56,7 +56,7 @@ section {
 
 section h2 {
     text-align: center;
-    color: #222; /* Dark text */
+    color: #000000; /* Dark text */
     border-bottom: 2px solid #32cd32; /* Green underline for headings */
     display: inline-block;
     padding-bottom: 5px;
@@ -120,7 +120,7 @@ button, a:hover {
 }
 
 .service p {
-    color: #333; /* Dark grey text */
+    color: #ffffff; /* Dark grey text */
 }
 
 /* Contact Section */
@@ -257,43 +257,50 @@ button, a:hover {
 }
 
 /* Testimonials Section */
-.testimonials {
-    background-color: #fff;
+#testimonials {
+    position: relative;
+    z-index: 1;
     padding: 40px 20px;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
+    background-color: #e0f7fa; /* Soft Light Blue Background */
 }
 
 .testimonial-container {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .testimonial {
-    background-color: #f9f9f9;
+    background-color: rgba(44, 62, 80, 0.7); /* Dark Blue Background with Transparency */
+    color: #fff; /* White Text */
     padding: 20px;
+    margin: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 30%;
-    text-align: center;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.testimonial h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
 }
 
 .testimonial p {
-    font-style: italic;
-    color: #555;
+    font-size: 16px;
+    color: #f8f8f8; /* Soft off-white text */
 }
 
-.testimonial h4 {
-    font-weight: bold;
-    color: #32cd32;
-    margin-top: 10px;
+.testimonial:hover {
+    background-color: rgba(52, 152, 219, 0.8); /* Light Blue Background on Hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+
 
 /* Gallery Section */
 .gallery {
@@ -348,11 +355,44 @@ header {
 }
 
 h1 {
-    font-size: 2.5em;
-    margin: 0;
-    flex-grow: 1; /* Make the title take up remaining space and center it */
-    text-align: center; /* Center the gym name */
+    font-family: 'Arial', sans-serif; /* You can use other fonts like 'Roboto' or 'Poppins' */
+    font-size: 48px; /* Larger font size for impact */
+    font-weight: bold;
+    color: #ffffff; /* Gradient effect will apply, but base color for fallback */
+    background-image: linear-gradient(to right, #2ecc71, #3498db); /* Green to Blue Gradient */
+    -webkit-background-clip: text; /* Applies the gradient to the text */
+    background-clip: text; /* Ensures the gradient appears on the text */
+    text-align: center; /* Centers the text */
+    text-transform: uppercase; /* Makes the text all caps */
+    letter-spacing: 2px; /* Adds spacing between letters */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Adds shadow for depth */
+    animation: textAnimation 3s ease-in-out infinite; /* Adds animation effect */
+    margin: 50px 0; /* Adds space around the heading */
+    
 }
+
+/* Animation for text */
+@keyframes textAnimation {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px); /* Moves text up slightly */
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Optional: Make the font more stylish with Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+h1 {
+    font-family: 'Roboto', sans-serif; /* Using Google Font for more modern look */
+}
+
 
 nav ul {
     list-style: none;
@@ -395,3 +435,247 @@ h2 {
 html{
     scroll-behavior: smooth;
 }
+.full-width-video {
+    width: 100%; /* Full width of the page */
+    margin-top: 20px; /* Add some space above the video */
+    overflow: hidden; /* Ensure no extra parts are shown */
+}
+
+.full-width-video video {
+    width: 100%; /* Make the video stretch to fit the width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners for better style */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 30px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-about,
+.footer-links,
+.footer-app,
+.footer-social {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-about h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-about p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-app img {
+    width: 120px;
+    margin: 10px 0;
+    display: block;
+}
+
+.footer-social a {
+    margin-right: 10px;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-related {
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.footer-related ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+.footer-related ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-related ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-related ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 14px;
+}
+.footer-social a {
+    margin-right: 10px;
+    color: #fff; /* Set default color to white */
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+/* Hover effect for social media icons */
+.footer-social a:hover {
+    color: #3498db; /* Change color to blue on hover, or use any desired color */
+}
+
+.footer-social img {
+    filter: brightness(0) invert(1); /* Ensure the icons are white initially */
+}
+
+/* Hover effect for images inside social links */
+.footer-social a:hover img {
+    filter: brightness(1) invert(0); /* Reset to normal color (colorful) on hover */
+}
+
+.video-backgrounds {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1; /* Keeps the video behind the content */
+}
+
+.video-backgrounds video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensures the video stays behind the content */
+}
+
+.video-backgrounds .content {
+    position: relative;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; /* Keeps the content on top of the video */
+}
+
+.btn {
+    background-color: white;
+    color: #32cd32;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #28a828;
+    color: white;
+}
+
+
+
+#service {
+    position: relative;
+    z-index: 1; /* Keeps the service section above the video */
+    overflow: hidden; /* Ensures no overflow is visible */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps the video behind the content */
+}
+
+.background-video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.service-container {
+    position: relative;
+    z-index: 2; /* Keeps the content on top of the video */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.service {
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    color: white; /* Ensures the text remains visible */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 22%; /* Adjust width to fit four blocks horizontally */
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Transition all properties smoothly */
+}
+
+.service h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.service p {
+    font-size: 16px;
+}
+
+.service:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Darkens the background on hover */
+    transform: scale(1.05); /* Slightly enlarges the block */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Adds a shadow effect */
+}
+
