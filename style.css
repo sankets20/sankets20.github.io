@@ -332,7 +332,7 @@
     border-radius: 15px; /* Apply rounded corners to wrapper */
     height: 200px;
     width: 400px;
-   object-fit: contain;
+   object-fit: cover;
 }
 .DZY-card-img {
     height: 200px;
