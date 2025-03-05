@@ -1,0 +1,731 @@
+   /* General Reset */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+ overflow-x: hidden;
+
+    font-family: Arial, sans-serif;
+  }
+
+  /* Header Styling */
+  .dzyhdr-header {
+    width: 100%;
+    background-color: #fff;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 10; /* Ensure the header is above the menu */
+  }
+  
+  a.DZY-social-link.d-flex.align-items-center.justify-content-center {
+  text-decoration: none !important;
+}
+
+  .dzyhdr-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Logo Styling */
+  .dzyhdr-logo h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  /* Navigation Menu */
+  .dzyhdr-nav {
+    display: flex;
+    gap: 30px;
+  }
+
+  .dzyhdr-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+
+  .dzyhdr-nav ul li a {
+    text-decoration: none;
+    color: #737373;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+  }
+
+  .dzyhdr-nav ul li a:hover {
+    color: #000;
+  }
+
+  /* Button Styling */
+  .dzyhdr-btn {
+    text-decoration: none;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .dzyhdr-btn:hover {
+    background-color:  #9d8df7;
+  }
+
+  /* Hamburger Menu */
+  .dzyhdr-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .dzyhdr-hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+
+  /* Mobile Menu */
+  @media screen and (max-width: 768px) {
+    .dzyhdr-nav {
+      display: none;
+      position: absolute;
+      top: 100%; /* Place it below the header */
+      right: 0;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px 0;
+      z-index: 5; /* Ensure it doesn't overlap other elements */
+    }
+
+    .dzyhdr-nav.active {
+      display: flex; /* Show the menu */
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .dzyhdr-nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .dzyhdr-nav ul li {
+      margin-bottom: 15px;
+    }
+
+    .dzyhdr-hamburger {
+      display: flex;
+    }
+
+    /* Hamburger Animation */
+    .dzyhdr-hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .dzyhdr-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .dzyhdr-hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  .DZY-hero-section {
+    background-color: #f8f9fa; /* Light gray for a clean, modern look */
+    padding: 3rem 0;
+    overflow: hidden; /* Prevent image overflow outside the section */
+  }
+
+  .DZY-hero-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #212529; /* Dark shade for contrast */
+    display: inline-block;
+    position: relative; /* Ensure span will be positioned within the heading */
+    /* background-color: #28a745; */
+  }
+
+  .DZY-hero-paragraph {
+    font-size: 1.1rem;
+    color: #6c757d; /* Subtle text color */
+  }
+
+  span {
+    color: #9d8df7;
+  }
+
+  .DZY-hero-button {
+    background-color: #000 !important;
+    color: #fff;
+    padding: 0;
+    border: none !important;
+    border-radius: 50% !important; /* Initially make it a circle */
+    width: 60px; /* Set width */
+    height: 60px; /* Set height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Perfect centering of the content inside the circle */
+    text-align: center;
+    font-size: 32px; /* Adjust the font size */
+    transition: all 0.6s ease; /* Smooth transition for width, height, and border-radius */
+    text-decoration: none;
+    position: relative; /* Allow positioning of arrow inside the button */
+  }
+
+  /* Arrow Icon inside the button */
+  .DZY-arrow-icon {
+    font-size: 32px; /* Increase the font size for the arrow */
+    color: white; /* Set arrow color */
+    position: absolute; /* Absolutely position the arrow inside the button */
+    top: 40%; /* Move the arrow 40% from the top */
+    left: 50%; /* Move it to the horizontal center */
+    transform: translate(-50%, -50%); /* Offset by 50% of its width and height to center it perfectly */
+    visibility: visible;
+  }
+
+  /* Text inside the button when hovered */
+  .DZY-button-text {
+    visibility: hidden; /* Initially hide the text */
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    opacity: 0; /* Start hidden */
+  }
+
+  .DZY-hero-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    border-radius: 25px !important; /* Change to a capsule shape on hover */
+    width: 200px; /* Expand the width */
+    height: 50px; /* Adjust the height for capsule shape */
+    padding: 10px 30px; /* Adjust padding for a wider button */
+  }
+
+  .DZY-hero-button:hover .DZY-arrow-icon {
+    visibility: hidden; /* Hide the arrow on hover */
+  }
+
+  .DZY-hero-button:hover .DZY-button-text {
+    visibility: visible; /* Show the text when hovered */
+    opacity: 1; /* Make the text visible */
+    animation: revealText 0.6s forwards; /* Reveal text with animation */
+  }
+
+  /* Animation to reveal text smoothly */
+  @keyframes revealText {
+    0% {
+      opacity: 0;
+      transform: translateX(-10px); /* Start from a small offset */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* End at the normal position */
+    }
+  }
+
+  .DZY-hero-image {
+    max-width: 150%; /* Allow the image to extend beyond its container */
+    margin-left: 0px; /* Move the image left to overlap with text */
+    z-index: 1; /* Push the image behind the text */
+    position: relative;
+    border-radius: 0.5rem; /* Rounded corners for a modern look */
+    /* background-color: aqua; */
+  }
+
+  /* Animation for letter-by-letter reveal */
+  .DZY-animate-span {
+    display: inline; /* Ensure span acts like an inline element */
+    position: relative; /* Allow positioning of each letter */
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 0.2rem; /* Add padding to ensure spacing */
+  }
+
+  .DZY-animate-span span {
+    display: inline-block;
+    opacity: 0;
+    animation: letterReveal 0.6s ease forwards;
+  }
+
+  @keyframes letterReveal {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .DZY-hero-image {
+      max-width: 160%; /* Reset for smaller screens */ 
+      margin-left: 0; /* Remove overlap for small screens */
+    }
+  }
+
+  /* CSS for Styling and Micro-interactions  */
+  .DZY-stats-section {
+    font-family: 'Roboto', sans-serif;
+    background: #000 !important;
+  }
+
+  .DZY-stat-box {
+    padding: 20px;
+    background: #000;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    height: 100%; /* Ensure equal height */
+  }
+ .DZY-stat-box:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .DZY-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f8f9fa;
+  }
+
+  .DZY-stat-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ced4da;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+
+  body {
+    font-family: 'Inter', sans-serif;
+}
+.DZY-card-container {
+    padding: 2rem 0;
+}
+.DZY-card {
+    border-radius: 15px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.DZY-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.DZY-img-wrapper {
+    overflow: hidden; /* Ensures rounded corners cut off the image */
+    border-radius: 15px; /* Apply rounded corners to wrapper */
+    height: 200px;
+    width: 400px;
+}
+.DZY-card-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+.DZY-card-title {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+.DZY-card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+/* Yellow Rating Style */
+.rating {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+.rating-number {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #000000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f6f5fc;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Section Container */
+  .dzyc-nft-section {
+    position: relative;
+    padding: 140px 0; /* Increased padding for moving content down */
+    height: auto; /* Auto height to cover content */
+        margin: 50px 0;
+  }
+
+  /* Image Background (Placeholder) */
+  .dzyc-image-background {
+    position: absolute;
+    top: -200px;
+    right: -250px;
+    width: 700px;
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  /* Text Content */
+  .dzyc-nft-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #212529;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .dzyc-nft-title span {
+    color: #9d8df7;
+  }
+
+  .dzyc-nft-description {
+    color: #6c757d;
+    font-size: 1rem;
+    max-width: 60%;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Card Styles */
+  .dzyc-nft-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+    position: absolute;
+    z-index: 3;
+  }
+
+  .dzyc-nft-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .dzyc-icon-container {
+    background: #9d8df7;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.3rem;
+  }
+
+  .dzyc-price-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0;
+  }
+
+  .dzyc-btc-rate {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+
+  /* Cards Positioned Along the Curve */
+  .dzyc-card-1 {
+    top: 140px; /* Adjusted position */
+    right: 120px;
+    transform: rotate(-10deg);
+  }
+
+  .dzyc-card-2 {
+    top: 280px; /* Adjusted position */
+    right: 90px;
+    transform: rotate(-2deg);
+  }
+
+  .dzyc-card-3 {
+    top: 420px; /* Adjusted position */
+    right: 120px;
+    transform: rotate(8deg);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .dzyc-image-background {
+      width: 500px;
+      height: 500px;
+      right: -200px;
+      top: -150px;
+    }
+
+    .dzyc-card-1 {
+      top: 100px;
+      right: 80px;
+    }
+
+    .dzyc-card-2 {
+      top: 200px;
+      right: 60px;
+    }
+
+    .dzyc-card-3 {
+      top: 300px;
+      right: 80px;
+    }
+
+    .dzyc-nft-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dzyc-image-background {
+      display: none; /* Hide image on smaller screens */
+    }
+
+    .dzyc-nft-card {
+      position: static;
+      margin: 10px 15px 10px 15px;
+      transform: none;
+    }
+
+    .dzyc-nft-section {
+      text-align: center; /* Center the content */
+      padding: 60px 0;
+    }
+
+    .dzyc-nft-description {
+      text-align: center; /* Center the description on mobile */
+      max-width: 100%; /* Allow the description to take full width */
+    }
+  }
+
+    /* Gallery Container */
+    .dzc-gallery-carousel {
+        width: 100%;
+        max-width: 1000px;
+        margin: 100px auto;
+        overflow: hidden;
+        position: relative;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #f5f5f5;
+      }
+    
+      /* Carousel Wrapper */
+      .dzc-carousel-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+    
+      /* Individual Slide */
+      .dzc-carousel-slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+    
+      /* Image Style */
+      .dzc-carousel-img {
+        width: 100%;
+        height: 400px; /* Set a fixed height */
+        object-fit: cover; /* Ensures the image fits inside without stretching */
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+    
+      /* Hover Effect on Images */
+      .dzc-carousel-img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+    
+      /* Responsive Optimization */
+      @media (max-width: 768px) {
+        .dzc-gallery-carousel {
+          max-width: 100%;
+          margin: 50px Auto;
+        }
+    
+        .dzc-carousel-slide {
+          padding: 5px;
+        }
+      }
+
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      
+      .qa-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .qa-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #555;
+      }
+      
+      .qa-item {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+      }
+      
+      .qa-item:last-child {
+        border-bottom: none;
+      }
+      
+      .qa-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .qa-question h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      
+      .toggle-icon {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        transition: transform 0.3s ease;
+      }
+      
+      .qa-answer {
+        display: none;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #666;
+      }
+      
+      .qa-answer p {
+        margin: 0;
+      }
+      
+      .qa-item.open .qa-answer {
+        display: block;
+      }
+      
+      
+          .qa-item.open .toggle-icon {
+        transform: rotate(45deg);
+        color: #28a745;
+        }
+
+
+/* CSS */
+.DD-testimonial-section {
+    background: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .DD-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  .DD-testimonial-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .DD-testimonial {
+    display: none;
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .DD-testimonial.active {
+    display: block;
+  }
+  .DD-quote {
+    font-style: italic;
+    color: #555;
+  }
+  .DD-client-info {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+  }
+  .DD-client-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  .DD-client-name {
+    font-weight: bold;
+    color: #333;
+  }
+  .DD-controls {
+    margin-top: 20px;
+  }
+  .DD-controls button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;  /* Equal padding to maintain roundness */
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;  /* Ensures the text or icon is centered vertically */
+    width: auto;  /* Allow width to adjust based on content */
+    height: auto;  /* Allow height to adjust based on content */
+    min-width: 40px;  /* Minimum width to maintain circular shape */
+    min-height: 40px; /* Minimum height for round button */
+  }
+  
+  .DD-controls button:hover {
+    background: #555;
+  }
+  .DZY-social-link:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
