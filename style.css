@@ -796,5 +796,59 @@ body {
   font-size: 14px;
   color: #444;
 }
+@media (max-width: 768px) {
+  .tech-stack-section {
+    padding: 30px 10px;
+  }
+
+  .tech-stack-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .tech-icons {
+    gap: 20px;
+  }
+
+  .tech-item {
+    width: 80px;
+  }
+
+  .tech-item img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .tech-item p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-stack-section {
+    padding: 20px 10px;
+  }
+
+  .tech-stack-section h2 {
+    font-size: 1.3em;
+  }
+
+  .tech-icons {
+    gap: 15px;
+  }
+
+  .tech-item {
+    width: 70px;
+  }
+
+  .tech-item img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tech-item p {
+    font-size: 11px;
+  }
+}
 
 
