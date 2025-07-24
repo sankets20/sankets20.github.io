@@ -58,23 +58,24 @@
 </section>
 
 
-  <script>
-   const hamburger = document.getElementById('dzyhdr-hamburger');
-const navMenu = document.getElementById('dzyhdr-nav-menu');
-const heroSection = document.querySelectoro('.DZY-hero-section');
+<script>
+  const hamburger = document.getElementById('dzyhdr-hamburger');
+  const navMenu = document.getElementById('dzyhdr-nav-menu');
+  const heroSection = document.querySelector('.DZY-hero-section'); // ✅ Fixed here
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('active');
-  if (navMenu.classList.contains('active')) {
-    const navHeight = navMenu.offsetHeight;
-    heroSection.style.marginTop = `${navHeight}px`;
-  } else {
-    heroSection.style.marginTop = '0';
-  }
-});
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
 
-  </script>
+    if (navMenu.classList.contains('active')) {
+      const navHeight = navMenu.offsetHeight;
+      heroSection.style.marginTop = `${navHeight}px`;
+    } else {
+      heroSection.style.marginTop = '0';
+    }
+  });
+</script>
+
 </body>
 </html>
 
