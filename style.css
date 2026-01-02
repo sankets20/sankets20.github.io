@@ -850,5 +850,19 @@ body {
     font-size: 11px;
   }
 }
+.DZY-send-btn {
+  background-color: #9d8df7;
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.DZY-send-btn:hover {
+  background-color: #8a7cf0; /* slightly darker */
+  transform: translateY(-2px);
+}
 
 
