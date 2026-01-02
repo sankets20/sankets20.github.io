@@ -720,16 +720,23 @@ setInterval(() => {
 <script>
   document.addEventListener("DOMContentLoaded", function () {
 
+    // Initialize EmailJS
     emailjs.init("MQDCrGRwjqnYu2Woc");
 
     const form = document.getElementById("query-form");
     const status = document.getElementById("query-status");
 
-    if (!form) {
-      console.error("Query form not found");
+    if (!form || !status) {
+      console.error("Query form or status element not found");
       return;
     }
 
+    // Clear message when user types again
+    form.addEventListener("input", function () {
+      status.innerText = "";
+    });
+
+    // Handle form submit
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -745,11 +752,21 @@ setInterval(() => {
           status.innerText = "✅ Query sent successfully!";
           status.style.color = "green";
           form.reset();
+
+          // Auto-hide message after 3 seconds
+          setTimeout(() => {
+            status.innerText = "";
+          }, 3000);
         },
         function (error) {
           status.innerText = "❌ Failed to send. Try again.";
           status.style.color = "red";
           console.error("EmailJS Error:", error);
+
+          // Auto-hide error after 3 seconds
+          setTimeout(() => {
+            status.innerText = "";
+          }, 3000);
         }
       );
     });
@@ -821,6 +838,7 @@ setInterval(() => {
 </footer>
 <!-- FontAwesome CDN -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
 
 
